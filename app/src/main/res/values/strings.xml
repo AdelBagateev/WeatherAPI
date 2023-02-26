@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WetherApp</string>
+    <string name="humidity">Humidity: %s</string>
+    <string name="visibilty">Visibility: %s</string>
+    <string name="degree">%s° C</string>
+
+    <string name="city">City</string>
+
+</resources>
