@@ -1,8 +1,12 @@
-package com.example.wetherapp.data
+package com.example.wetherapp.di
 
 import com.example.wetherapp.BuildConfig
+import com.example.wetherapp.data.WeatherRepositoryImpl
 import com.example.wetherapp.data.interceptors.ApiKeyInterceptor
 import com.example.wetherapp.data.interceptors.UnitsMetricInterceptor
+import com.example.wetherapp.data.weather.datasource.remote.WeatherApi
+import com.example.wetherapp.domain.weather.GetNearestWeatherUseCase
+import com.example.wetherapp.domain.weather.GetWeatherUseCase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,6 +16,9 @@ import java.util.concurrent.TimeUnit
 object DataContainer {
 
     private const val BASE_URL = BuildConfig.API_ENDPOINT
+
+
+
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = if (BuildConfig.DEBUG) {
@@ -38,5 +45,15 @@ object DataContainer {
             .build()
     }
 
-    val weatherApi = retrofit.create(WeatherApi::class.java)
+    val weatherApi: WeatherApi = retrofit.create(WeatherApi::class.java)
+
+    private val weatherRepository = WeatherRepositoryImpl(weatherApi)
+
+    val weatherUseCase: GetWeatherUseCase
+        get() = GetWeatherUseCase(weatherRepository)
+
+    val nearestWeatherUseCase: GetNearestWeatherUseCase
+        get() = GetNearestWeatherUseCase(weatherRepository)
+
+
 }

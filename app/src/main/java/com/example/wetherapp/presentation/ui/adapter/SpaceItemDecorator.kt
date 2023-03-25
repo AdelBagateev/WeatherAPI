@@ -1,4 +1,4 @@
-package com.example.wetherapp.adapter
+package com.example.wetherapp.presentation.ui.adapter
 
 import android.content.Context
 import android.graphics.Rect
