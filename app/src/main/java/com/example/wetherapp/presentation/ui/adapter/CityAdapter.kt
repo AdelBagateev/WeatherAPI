@@ -1,15 +1,15 @@
-package com.example.wetherapp.adapter
+package com.example.wetherapp.presentation.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-import com.example.wetherapp.data.response.FindResponse
+import com.example.wetherapp.data.weather.datasource.remote.response.FindResponse
 import com.example.wetherapp.databinding.ItemCityBinding
 
 class CityAdapter (
-    private val list: List<FindResponse>,
-    private val action: (FindResponse) -> Unit,
+    var list: List<FindResponse>,
+    private val action: (Int) -> Unit,
 ) : RecyclerView.Adapter<CityItem>() {
 
     override fun onCreateViewHolder(

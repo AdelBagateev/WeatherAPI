@@ -1,14 +1,14 @@
-package com.example.wetherapp.adapter
+package com.example.wetherapp.presentation.ui.adapter
 
 import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.wetherapp.data.response.FindResponse
+import com.example.wetherapp.data.weather.datasource.remote.response.FindResponse
 import com.example.wetherapp.databinding.ItemCityBinding
 
 class CityItem(
     private val binding: ItemCityBinding,
-    private val action: (FindResponse) -> Unit,
+    private val action: (Int) -> Unit,
 ) :  RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(city: FindResponse) {
@@ -20,7 +20,7 @@ class CityItem(
 
 
             root.setOnClickListener {
-                action(city)
+                action(city.id)
             }
         }
     }

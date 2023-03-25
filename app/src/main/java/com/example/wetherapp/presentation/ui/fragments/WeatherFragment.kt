@@ -1,4 +1,4 @@
-package com.example.wetherapp.ui.fragments
+package com.example.wetherapp.presentation.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import coil.load
 import com.example.wetherapp.R
-import com.example.wetherapp.data.DataContainer
+import com.example.wetherapp.di.DataContainer
 import com.example.wetherapp.databinding.FragmentWetherBinding
 import kotlinx.coroutines.launch
 

@@ -1,9 +1,9 @@
-package com.example.wetherapp.ui.activities
+package com.example.wetherapp.presentation.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.wetherapp.R
-import com.example.wetherapp.ui.fragments.MainFragment
+import com.example.wetherapp.presentation.ui.fragments.MainFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
